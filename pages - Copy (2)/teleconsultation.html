@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APMF - Téléconsultation</title>
+    <link rel="stylesheet" href="./telecomunication/telecommunication_style.css">
+    <!-- API Jitsi (chargée dynamiquement plus tard) -->
+</head>
+<body>
+    <div class="teleconsultation-container">
+        <!-- Étape 1 : Pré-consultation -->
+        <div class="pre-consultation" id="preConsultation">
+            <h1><img src="icons/video-call.svg" alt="icon"> Téléconsultation APMF</h1>
+            
+            <div class="consultation-steps">
+                <div class="step active">1. Vérification</div>
+                <div class="step">2. Consultation</div>
+                <div class="step">3. Post-consultation</div>
+            </div>
+
+            <div class="consultation-info">
+                <h2>Votre consultation avec <span id="doctorName">Dr. Jean Kaboré</span></h2>
+                <p id="consultationTime">15 Nov 2023, 14:00 - 14:30</p>
+                
+                <div class="requirements">
+                    <h3>Prérequis techniques :</h3>
+                    <ul>
+                        <li>Connexion Internet stable (>1Mbps)</li>
+                        <li>Microphone et caméra fonctionnels</li>
+                        <li>Navigateur à jour (Chrome, Firefox, Edge)</li>
+                    </ul>
+                </div>
+
+                <button id="startConsultationBtn" class="btn">Commencer la consultation</button>
+            </div>
+        </div>
+
+        <!-- Étape 2 : Interface Jitsi (masquée au départ) -->
+        <div id="jitsiContainer" style="display:none;">
+            <div class="consultation-header">
+                <h2>Consultation en cours</h2>
+                <button id="endConsultationBtn" class="btn btn-danger">Terminer</button>
+            </div>
+            <!-- Jitsi s'affichera ici dynamiquement -->
+            <div id="jitsi-meet"></div>
+        </div>
+
+        <!-- Étape 3 : Post-consultation (masquée au départ) -->
+        <div id="postConsultation" style="display:none;">
+            <h2>Merci pour votre consultation !</h2>
+            <div class="post-consult-actions">
+                <button id="downloadPrescriptionBtn" class="btn">Télécharger ordonnance</button>
+                <button id="newAppointmentBtn" class="btn">Prendre un nouveau rendez-vous</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./telecomunication/telecommunication_script.js"></script>
+    <!-- L'API Jitsi sera chargée dynamiquement quand nécessaire -->
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APMF - Téléconsultation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./telecomunication/telecommunication_style.css">
+</head>
+<body>
+    <header class="tele-header">
+        <div class="container">
+            <h1><i class="fas fa-video"></i> Téléconsultation APMF</h1>
+            <p>Consultez un médecin à distance, rapidement et en toute sécurité</p>
+        </div>
+    </header>
+
+    <main class="container tele-main">
+        <!-- Section Réservation -->
+        <section class="tele-form">
+            <div class="tele-steps">
+                <div class="step active">1. Choix du médecin</div>
+                <div class="step">2. Créneau horaire</div>
+                <div class="step">3. Paiement</div>
+                <div class="step">4. Consultation</div>
+            </div>
+
+            <form id="teleForm">
+                <!-- Étape 1 -->
+                <div class="form-step active" data-step="1">
+                    <h2><i class="fas fa-user-md"></i> Sélectionnez un spécialiste</h2>
+                    <div class="doctor-grid" id="teleDoctors">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="form-step" data-step="2">
+                    <h2><i class="fas fa-calendar-alt"></i> Choisissez un horaire</h2>
+                    <div class="calendar-container">
+                        <input type="text" id="teleDatePicker" placeholder="Sélectionnez une date" readonly>
+                        <div class="time-slots" id="teleTimeSlots"></div>
+                    </div>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="form-step" data-step="3">
+                    <h2><i class="fas fa-credit-card"></i> Paiement sécurisé</h2>
+                    <div class="payment-summary">
+                        <p>Consultation avec <span id="summaryDoctor">Dr. Nom</span></p>
+                        <p>Le <span id="summaryDate">date/heure</span></p>
+                        <p class="price">5 000 FCFA</p>
+                    </div>
+                    <div id="paymentForm">
+                        <!-- Intégrer ici une solution comme Stripe ou PayPal -->
+                        <button type="button" class="btn btn-pay" id="simulatePay">
+                            <i class="fab fa-cc-paypal"></i> Payer maintenant
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="form-step" data-step="4">
+                    <h2><i class="fas fa-laptop-medical"></i> Prêt pour votre consultation</h2>
+                    <div class="consultation-info">
+                        <p>Votre lien de consultation :</p>
+                        <a href="#" id="meetingLink" target="_blank">https://meet.jit.si/APMF-RDV-123</a>
+                        <button type="button" class="btn btn-start" id="startConsultation">
+                            <i class="fas fa-video"></i> Démarrer
+                        </button>
+                        <div class="tele-chat" id="teleChat">
+                            <div class="chat-messages"></div>
+                            <input type="text" placeholder="Envoyer un message..." id="chatInput">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-prev" id="telePrevBtn" disabled>
+                        <i class="fas fa-arrow-left"></i> Précédent
+                    </button>
+                    <button type="button" class="btn btn-next" id="teleNextBtn">
+                        Suivant <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section Info -->
+        <section class="tele-info">
+            <h2><i class="fas fa-info-circle"></i> Comment ça marche ?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>1. Prenez rendez-vous</h3>
+                    <p>Choisissez votre médecin et un créneau disponible.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-video"></i>
+                    <h3>2. Connectez-vous</h3>
+                    <p>Accédez à la consultation via le lien envoyé.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-file-prescription"></i>
+                    <h3>3. Recevez vos documents</h3>
+                    <p>Ordonnances et comptes-rendus disponibles en ligne.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="./telecomunication/telecommunication_script.js"></script>
+    <!-- Intégration Jitsi (optionnel) -->
+    <script src="https://meet.jit.si/external_api.js"></script>
+</body>
+</html>

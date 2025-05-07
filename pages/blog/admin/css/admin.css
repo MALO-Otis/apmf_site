@@ -1,0 +1,49 @@
+.admin-header {
+    background: var(--dark);
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.admin-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-posts {
+    margin-top: 2rem;
+}
+
+.post-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.post-actions .btn {
+    padding: 0.5rem;
+}
+
+.btn-danger {
+    background: var(--danger);
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}

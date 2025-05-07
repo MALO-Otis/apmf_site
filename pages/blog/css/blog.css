@@ -1,0 +1,253 @@
+:root {
+    --primary: #2563eb;
+    --primary-light: #e0e7ff;
+    --secondary: #10b981;
+    --dark: #1f2937;
+    --light: #f8fafc;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* En-tête */
+.blog-header {
+    background: linear-gradient(135deg, var(--primary), #1e40af);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.blog-header i {
+    margin-right: 0.75rem;
+}
+
+/* Catégories */
+.blog-categories {
+    background: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.blog-categories ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.blog-categories li {
+    flex-shrink: 0;
+}
+
+.blog-categories a {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.blog-categories a:hover, 
+.blog-categories a.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.blog-categories .admin-link {
+    margin-left: auto;
+}
+
+/* Grille des articles */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.blog-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.05);
+}
+
+.blog-card-content {
+    padding: 1.5rem;
+}
+
+.blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-card-title {
+    margin: 0 0 1rem;
+    color: var(--dark);
+    font-size: 1.25rem;
+}
+
+.blog-card-excerpt {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background: #1e40af;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+#loadMoreBtn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+}
+
+/* Footer */
+.blog-footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-categories ul {
+        padding: 0.5rem 0;
+    }
+    
+    .blog-categories a {
+        padding: 0.75rem 1rem;
+    }
+}
+/* Styles spécifiques pour le slider */
+.swiper {
+    width: 100%;
+    height: 500px;
+    margin: 2rem 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+    color: var(--primary);
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .swiper {
+        height: 300px;
+    }
+}

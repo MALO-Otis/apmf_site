@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Blog - APMF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./../css/blog.css">
+    <link rel="stylesheet" href="./../admin/css/admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="container">
+            <h1><i class="fas fa-lock"></i> Administration du Blog</h1>
+            <nav class="admin-nav">
+                <a href="./post_edited.html" class="btn"><i class="fas fa-plus"></i> Nouvel article</a>
+                <a href="../../blog.html" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> Voir le blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container admin-container">
+        <h2>Articles publiés</h2>
+        <div class="admin-posts" id="adminPosts">
+            <!-- Articles chargés dynamiquement -->
+        </div>
+    </main>
+
+    <script src="./../admin/js/admin.js"></script>
+</body>
+</html>

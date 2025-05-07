@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APMF - Téléconsultation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./telecomunication/telecommunication_style.css">
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="icon" href="./../assets/images/APMF.png" type="image/png">
+</head>
+<body>
+
+    <!-- HEADER -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="./../assets/images/APMF.png" alt="APMF Logo">
+        <h1>APMF Santé</h1>
+      </div>
+      <nav>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="./../index.html">Accueil</a></li>
+          <li><a href="./../pages/services.html">Services</a></li>
+          <li><a href="./../pages/rdv.html">Prendre RDV</a></li>
+          <li><a href="#">Téléconsultation</a></li>
+          <li><a href="./../pages/contact.html">Contact</a></li>
+          <li><a href="./../pages/blog.html">Notre Blog</a></li>
+          <li><a href="./../pages/espaces.html" class="btn">Espace Admin</a></li>
+        </ul>
+        <button id="menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
+
+
+    <div class="teleconsultation-flow">
+        <!-- Étape 1 : Sélection du service -->
+        <div class="step-container active" data-step="1">
+            <div class="step-header">
+                <div class="step-indicator">
+                    <div class="indicator active">1</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">2</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">3</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">4</div>
+                </div>
+                <h2><i class="fas fa-video"></i> Prise de rendez-vous en téléconsultation</h2>
+            </div>
+
+            <div class="service-selection">
+                <h3>Choisissez votre service médical</h3>
+                <div class="service-grid">
+                    <div class="service-card selected" data-service="generaliste">
+                        <div class="service-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Médecine générale</h4>
+                        <p>Consultation à distance avec un généraliste</p>
+                        <div class="price-badge">5 000 FCFA</div>
+                    </div>
+                    <div class="service-card" data-service="pediatrie">
+                        <div class="service-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h4>Pédiatrie</h4>
+                        <p>Consultation pour enfants (0-18 ans)</p>
+                        <div class="price-badge">7 000 FCFA</div>
+                    </div>
+                    <div class="service-card" data-service="cardiologie">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Cardiologie</h4>
+                        <p>Suivi cardiaque à distance</p>
+                        <div class="price-badge">10 000 FCFA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn next-btn" disabled>Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Étape 2 : Sélection du médecin -->
+        <div class="step-container" data-step="2">
+            <div class="step-header">
+                <div class="step-indicator">
+                    <div class="indicator completed">1</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator active">2</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">3</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">4</div>
+                </div>
+                <h2><i class="fas fa-user-md"></i> Choisissez votre médecin</h2>
+            </div>
+
+            <div class="doctor-selection">
+                <div class="filter-section">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Rechercher un médecin...">
+                    </div>
+                    <div class="availability-filter">
+                        <label><input type="checkbox" checked> Disponible aujourd'hui</label>
+                    </div>
+                </div>
+
+                <div class="doctor-grid" id="doctorGrid">
+                    <!-- Rempli dynamiquement en JS -->
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn prev-btn"><i class="fas fa-arrow-left"></i> Précédent</button>
+                <button class="btn next-btn" disabled>Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Étape 3 : Sélection du créneau -->
+        <div class="step-container" data-step="3">
+            <div class="step-header">
+                <div class="step-indicator">
+                    <div class="indicator completed">1</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator completed">2</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator active">3</div>
+                    <div class="indicator-line"></div>
+                    <div class="indicator">4</div>
+                </div>
+                <h2><i class="far fa-calendar-alt"></i> Choisissez votre créneau</h2>
+            </div>
+
+            <div class="time-selection">
+                <!-- Ajouter cette section avant le datepicker -->
+<div class="quick-date-options">
+    <button class="btn today-btn" id="todayBtn">
+        <i class="fas fa-calendar-day"></i> Aujourd'hui
+    </button>
+</div>
+                <div class="date-picker-container">
+                    <input type="text" id="datePicker" placeholder="Sélectionnez une date" readonly>
+                </div>
+                <div class="time-slots-container" id="timeSlotsContainer">
+                    <div class="time-slot-header">
+                        <h4 id="selectedDateDisplay">Sélectionnez d'abord une date</h4>
+                        <div class="time-legend">
+                            <span><i class="fas fa-circle available"></i> Disponible</span>
+                            <span><i class="fas fa-circle unavailable"></i> Complet</span>
+                        </div>
+                    </div>
+                    <div class="time-slots-grid" id="timeSlotsGrid">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn prev-btn"><i class="fas fa-arrow-left"></i> Précédent</button>
+                <button class="btn next-btn" disabled>Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Étape 4 : Paiement et confirmation -->
+        <div class="step-container" data-step="4">
+            <div class="step-header">
+                <div class="step-indicator">
+                    <div class="indicator completed">1</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator completed">2</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator completed">3</div>
+                    <div class="indicator-line completed"></div>
+                    <div class="indicator active">4</div>
+                </div>
+                <h2><i class="fas fa-credit-card"></i> Paiement et confirmation</h2>
+            </div>
+
+            <div class="confirmation-container">
+                <div class="appointment-summary">
+                    <h3>Récapitulatif de votre rendez-vous</h3>
+                    <div class="summary-card">
+                        <div class="summary-item">
+                            <span>Service :</span>
+                            <strong id="summaryService">Médecine générale</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Médecin :</span>
+                            <strong id="summaryDoctor">Dr. Jean Kaboré</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Date :</span>
+                            <strong id="summaryDate">15 nov. 2023 à 14:00</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Durée :</span>
+                            <strong>30 minutes</strong>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total à payer :</span>
+                            <strong id="summaryPrice">5 000 FCFA</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="patient-info-form">
+                    <h3>Vos informations</h3>
+                    <div class="form-group">
+                        <label for="patientName">Nom complet</label>
+                        <input type="text" id="patientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientPhone">Téléphone</label>
+                        <input type="tel" id="patientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientEmail">Email (pour le lien de consultation)</label>
+                        <input type="email" id="patientEmail">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Méthode de paiement</h3>
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-method="orange">
+                            <img src="icons/orange-money.png" alt="Orange Money">
+                            <span>Orange Money</span>
+                        </div>
+                        <div class="payment-option" data-method="mtn">
+                            <img src="icons/mtn-momo.png" alt="MTN MoMo">
+                            <span>MTN MoMo</span>
+                        </div>
+                        <div class="payment-option" data-method="wave">
+                            <img src="icons/wave.png" alt="Wave">
+                            <span>Wave</span>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <i class="far fa-credit-card"></i>
+                            <span>Carte bancaire</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-details" id="orangeDetails" style="display: block;">
+                        <div class="form-group">
+                            <label for="orangeNumber">Numéro Orange Money</label>
+                            <input type="tel" id="orangeNumber" placeholder="Ex: 07 12 34 56 78">
+                        </div>
+                    </div>
+
+                    <div class="terms-check">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms">Je reconnais avoir pris connaissance des <a href="#">conditions générales</a> et les accepte</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn prev-btn"><i class="fas fa-arrow-left"></i> Précédent</button>
+                <button class="btn confirm-btn" id="confirmPaymentBtn">
+                    <i class="fas fa-lock"></i> Payer et confirmer
+                </button>
+            </div>
+        </div>
+
+        <!-- Étape 5 : Confirmation finale (cachée initialement) -->
+        <div class="step-container final-step" data-step="5" style="display: none;">
+            <div class="success-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Votre téléconsultation est confirmée !</h2>
+                <p>Un email avec le lien de connexion a été envoyé à <strong id="confirmationEmail">test@example.com</strong></p>
+                
+                <div class="consultation-link-card">
+                    <h4><i class="fas fa-video"></i> Lien de votre consultation</h4>
+                    <div class="link-box" id="meetingLink">https://meet.jit.si/apmf-consult-xyz123</div>
+                    <button class="btn copy-link-btn" id="copyLinkBtn">
+                        <i class="far fa-copy"></i> Copier le lien
+                    </button>
+                </div>
+
+                <div class="reminder-box">
+                    <h4><i class="fas fa-bell"></i> Rappel important</h4>
+                    <ul>
+                        <li>Connectez-vous 5 minutes avant l'heure du rendez-vous</li>
+                        <li>Ayez une connexion internet stable</li>
+                        <li>Préparez votre pièce d'identité si nécessaire</li>
+                    </ul>
+                </div>
+
+                <button class="btn launch-consultation-btn" id="launchConsultationBtn">
+                    <i class="fas fa-video"></i> Lancer la consultation maintenant
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interface Jitsi (cachée initialement) -->
+    <div id="jitsiMeetingContainer" style="display: none;">
+        <div class="meeting-header">
+            <h2><i class="fas fa-video"></i> Consultation en cours - APMF</h2>
+            <button class="btn end-consultation-btn" id="endConsultationBtn">
+                <i class="fas fa-phone-slash"></i> Terminer
+            </button>
+        </div>
+        <div id="jitsi-meet"></div>
+    </div>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        
+        <!-- Colonne 1 : À propos -->
+        <div class="footer-col">
+          <h3>Centre de Santé APMF</h3>
+          <p>
+            Le Centre de Santé APMF est situé à Koudougou et offre des services médicaux accessibles et de qualité. 
+            Nous proposons des consultations en présentiel, des soins spécialisés, un suivi médical rigoureux et un service d'écoute pour les patients.
+         </p>
+          <a href="#">Pour plus d'informations</a>
+        </div>
+  
+        <!-- Colonne 2 : Contacts -->
+        <div class="footer-col">
+          <h3>Nos contacts</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Koudougou, Secteur 10, rue principale</p>
+          <p><i class="fas fa-phone-alt"></i> (+226) 64 85 57 57 | 62 86 56 56</p>
+          <p><i class="fas fa-envelope"></i> contact@apmf.bf</p>
+        </div>
+  
+        <!-- Colonne 3 : Réseaux sociaux -->
+        <div class="footer-col">
+          <h3>Suivez-nous !</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+  
+        <!-- Colonne 4 : Liens utiles -->
+        <div class="footer-col">
+          <h3>Partenaires & Liens utiles</h3>
+          <ul>
+            <li><a href="#">Ministère de la santé</a></li>
+            <li><a href="#">Ordre National des Médecins du Burkina Faso</a></li>
+            <li><a href="#">Centre de santé APMF</a></li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  
+    <!-- Bas de page -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Esante Company • Tous droits réservés • <a href="#">Conditions générales d'utilisation</a></p>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="./telecomunication/telecommunication_script.js"></script>
+</body>
+</html>
