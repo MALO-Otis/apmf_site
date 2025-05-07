@@ -11,9 +11,27 @@
 </head>
 <body>
     <!-- Header (à inclure depuis votre template principal) -->
-    <header class="header">
-        <!-- Votre navigation existante -->
-    </header>
+    <!-- HEADER -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="./../assets/images/APMF.png" alt="APMF Logo">
+        <h1>APMF Santé</h1>
+      </div>
+      <nav>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="./pages/services.html">Services</a></li>
+          <li><a href="./pages/rdv.html">Prendre RDV</a></li>
+          <li><a href="./pages/teleconsultation.html">Téléconsultation</a></li>
+          <li><a href="./pages/contact.html">Contact</a></li>
+          <li><a href="./pages/blog.html">Notre Blog</a></li>
+          <li><a href="./pages/espaces.html" class="btn">Espace Admin</a></li>
+        </ul>
+        <button id="menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
 
     <main>
         <!-- HERO SECTION SERVICES -->
@@ -163,9 +181,58 @@
     </main>
 
     <!-- Footer (à inclure depuis votre template principal) -->
-    <footer class="footer">
-        <!-- Votre footer existant -->
-    </footer>
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        
+        <!-- Colonne 1 : À propos -->
+        <div class="footer-col">
+          <h3>Centre de Santé APMF</h3>
+          <p>
+            Le Centre de Santé APMF est situé à Koudougou et offre des services médicaux accessibles et de qualité. 
+            Nous proposons des consultations en présentiel, des soins spécialisés, un suivi médical rigoureux et un service d'écoute pour les patients.
+         </p>
+          <a href="#">Pour plus d'informations</a>
+        </div>
+  
+        <!-- Colonne 2 : Contacts -->
+        <div class="footer-col">
+          <h3>Nos contacts</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Koudougou, Secteur 10, rue principale</p>
+          <p><i class="fas fa-phone-alt"></i> (+226) 64 85 57 57 | 62 86 56 56</p>
+          <p><i class="fas fa-envelope"></i> contact@apmf.bf</p>
+        </div>
+  
+        <!-- Colonne 3 : Réseaux sociaux -->
+        <div class="footer-col">
+          <h3>Suivez-nous !</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+  
+        <!-- Colonne 4 : Liens utiles -->
+        <div class="footer-col">
+          <h3>Partenaires & Liens utiles</h3>
+          <ul>
+            <li><a href="#">Ministère de la santé</a></li>
+            <li><a href="#">Ordre National des Médecins du Burkina Faso</a></li>
+            <li><a href="#">Centre de santé APMF</a></li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  
+    <!-- Bas de page -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Esante Company • Tous droits réservés • <a href="#">Conditions générales d'utilisation</a></p>
+    </div>
+  </footer>
 
     <script src="./../assets/js/main.js"></script>
 </body>
